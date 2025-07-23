@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +10,7 @@
     <header>
       <h1>Shawn Chumbar</h1>
       <p>Software Engineer | Golang | Python | AI Enthusiast</p>
+      <button id="theme-toggle">Switch to Dark Mode</button>
     </header>
 
     <nav>
@@ -64,8 +65,8 @@
         </p>
         <p>
           LinkedIn:
-          <a href="https://linkedin.com/in/schumbar" target="_blank"
-            >https://www.linkedin.com/in/schumbar/</a
+          <a href="https://www.linkedin.com/in/schumbar/" target="_blank"
+            >linkedin.com/in/schumbar</a
           >
         </p>
       </section>
@@ -74,5 +75,26 @@
     <footer>
       <p>© 2025 Shawn Chumbar. All rights reserved.</p>
     </footer>
+
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+
+      function setTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        toggleBtn.textContent =
+          theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+        localStorage.setItem("theme", theme);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        const currentTheme = root.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+      });
+
+      const savedTheme = localStorage.getItem("theme") || "light";
+      setTheme(savedTheme);
+    </script>
   </body>
 </html>
