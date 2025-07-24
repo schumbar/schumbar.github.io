@@ -14,7 +14,14 @@
     <header>
       <h1>Shawn Chumbar</h1>
       <p>Software Engineer | Golang | Python | AI Enthusiast</p>
-      <button id="theme-toggle">Switch to Dark Mode</button>
+      <div class="theme-toggle-container">
+        <span class="theme-label">☀️</span>
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle-input" />
+          <span class="slider"></span>
+        </label>
+        <span class="theme-label">🌙</span>
+      </div>
     </header>
 
     <nav>
@@ -259,19 +266,17 @@
     </footer>
 
     <script>
-      const toggleBtn = document.getElementById("theme-toggle");
+      const toggleInput = document.getElementById("theme-toggle-input");
       const root = document.documentElement;
 
       function setTheme(theme) {
         root.setAttribute("data-theme", theme);
-        toggleBtn.textContent =
-          theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+        toggleInput.checked = theme === "dark";
         localStorage.setItem("theme", theme);
       }
 
-      toggleBtn.addEventListener("click", () => {
-        const currentTheme = root.getAttribute("data-theme");
-        const newTheme = currentTheme === "light" ? "dark" : "light";
+      toggleInput.addEventListener("change", () => {
+        const newTheme = toggleInput.checked ? "dark" : "light";
         setTheme(newTheme);
       });
 
