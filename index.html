@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shawn Chumbar | Software Engineer</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -15,6 +19,7 @@
 
     <nav>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -23,52 +28,229 @@
       <section id="about">
         <h2>About Me</h2>
         <p>
-          I’m a software engineer passionate about building scalable systems and
+          I'm a software engineer passionate about building scalable systems and
           AI-powered tools. With experience in Golang, Python, and cloud
           technologies, I love solving real-world problems through code.
         </p>
       </section>
 
+      <section id="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Go</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Bash</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Frameworks & Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">Git</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>AI & ML</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">OpenAI API</span>
+              <span class="skill-tag">Reinforcement Learning</span>
+              <span class="skill-tag">Data Science</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-          <li>
-            <strong>Infinite Interact:</strong> A multi-agent AI platform for
-            data science automation. [<a
-              href="https://github.com/BayAreaRockers"
-              target="_blank"
-              >GitHub</a
-            >]
-          </li>
-          <li>
-            <strong>Intent-Based Networking:</strong> Microservices for network
-            automation at Nokia. [Private]
-          </li>
-          <li>
-            <strong>RL Simulator:</strong> Reinforcement learning for autonomous
-            racing. [<a href="#" target="_blank">Coming Soon</a>]
-          </li>
-        </ul>
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>🤖 Infinite Interact</h3>
+            <p>
+              A multi-agent AI platform for data science automation using Python
+              and OpenAI APIs. Features intelligent workflow orchestration and
+              collaborative AI agents.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenAI</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/BayAreaRockers"
+                target="_blank"
+                class="project-link"
+              >
+                📂 GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🌐 Intent-Based Networking</h3>
+            <p>
+              Microservices architecture for network automation at Nokia. Built
+              scalable Go services for intent translation and network
+              configuration management.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">gRPC</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <span class="project-link private">🔒 Private</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🏎️ RL Racing Simulator</h3>
+            <p>
+              Reinforcement learning environment for autonomous racing.
+              Implementing PPO and SAC algorithms for high-speed decision making
+              in simulated environments.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">OpenAI Gym</span>
+              <span class="tech-tag">NumPy</span>
+            </div>
+            <div class="project-links">
+              <span class="project-link coming-soon">🚧 Coming Soon</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>📊 Personal Portfolio</h3>
+            <p>
+              This responsive portfolio website built with vanilla HTML, CSS,
+              and JavaScript. Features dark/light theme toggle and mobile-first
+              design.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">GitHub Pages</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/schumbar/schumbar.github.io"
+                target="_blank"
+                class="project-link"
+              >
+                📂 GitHub
+              </a>
+              <a
+                href="https://schumbar.github.io"
+                target="_blank"
+                class="project-link"
+              >
+                🌐 Live Demo
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>🛠️ dotfiles</h3>
+            <p>
+              Personal development environment configuration including Zsh, Vim,
+              and various CLI tools for enhanced productivity.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Bash</span>
+              <span class="tech-tag">Zsh</span>
+              <span class="tech-tag">Vim</span>
+              <span class="tech-tag">Git</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/schumbar/dotfiles"
+                target="_blank"
+                class="project-link"
+              >
+                📂 GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>📈 Trading Bot</h3>
+            <p>
+              Algorithmic trading system with technical analysis indicators and
+              risk management. Built with Python and integrates with trading
+              APIs.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">API Integration</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/schumbar"
+                target="_blank"
+                class="project-link"
+              >
+                📂 GitHub Profile
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>
-          Email:
-          <a href="mailto:shawnchumbar@gmail.com">shawnchumbar@gmail.com</a>
-        </p>
-        <p>
-          GitHub:
-          <a href="https://github.com/schumbar" target="_blank"
-            >github.com/schumbar</a
-          >
-        </p>
-        <p>
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/schumbar/" target="_blank"
-            >linkedin.com/in/schumbar</a
-          >
-        </p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Phone</h3>
+              <a href="tel:9258134901">(925) 813-4901</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:shawnchumbar@gmail.com">shawnchumbar@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <h3>GitHub</h3>
+              <a href="https://github.com/schumbar" target="_blank"
+                >github.com/schumbar</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/schumbar/" target="_blank"
+                >linkedin.com/in/schumbar</a
+              >
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
