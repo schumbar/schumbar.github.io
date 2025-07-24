@@ -1,0 +1,539 @@
+:root {
+  --bg: #e6f0ff;
+  --text: #003366;
+  --header-bg: #0059b3;
+  --header-text: white;
+  --nav-bg: #3399ff;
+  --nav-text: white;
+  --card-bg: white;
+  --link: #004080;
+  --button-bg: #0073e6;
+  --button-text: white;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added for consistency */
+  --text-color-dark: var(--header-bg); /* New variable for consistent dark text */
+  --text-color-light: var(--text); /* New variable for consistent light text */
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f0f0f0;
+  --header-bg: #1f1f1f;
+  --header-text: #ffffff;
+  --nav-bg: #2c2c2c;
+  --nav-text: #ffffff;
+  --card-bg: #1c1c1c;
+  --link: #66ccff;
+  --button-bg: #333333;
+  --button-text: #f0f0f0;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow for dark theme */
+  --text-color-dark: var(--text); /* Adjust for dark theme */
+  --text-color-light: var(--text); /* Adjust for dark theme */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Theme Toggle Switch - Fixed in top right corner */
+.theme-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  background: var(--card-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-label {
+  font-size: 1.1rem;
+}
+
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--nav-bg);
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.slider:hover {
+  box-shadow: 0 0 8px rgba(51, 153, 255, 0.3);
+}
+
+/* Dark theme adjustments for toggle */
+[data-theme="dark"] .theme-toggle-container {
+  background: var(--card-bg);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .slider {
+  background-color: #555;
+}
+
+[data-theme="dark"] input:checked + .slider {
+  background-color: var(--link);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .theme-toggle-container {
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .theme-label {
+    font-size: 1rem;
+  }
+  
+  .theme-toggle {
+    width: 45px;
+    height: 23px;
+  }
+  
+  .slider:before {
+    height: 17px;
+    width: 17px;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+}
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--nav-bg);
+  padding: 1rem;
+}
+
+nav a {
+  color: var(--nav-text);
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 2rem;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow); /* Applied here for consistency */
+}
+
+a {
+  color: var(--link);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text);
+  margin-top: 2rem;
+  box-shadow: var(--box-shadow); /* Applied here for consistency */
+  border-radius: 8px; /* Added for consistency with sections */
+}
+
+/* Profile Photo Section */
+.profile-photo-container {
+  text-align: center;
+  margin-bottom: 2rem; /* Space below the photo */
+}
+
+.profile-photo {
+  width: 150px; /* Adjust size as needed */
+  height: 150px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the photo circular */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border: 4px solid var(--nav-bg); /* A nice border matching your theme */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+/* Skills Section */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.skill-category h3 {
+  color: var(--header-bg);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, var(--nav-bg), var(--header-bg));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  color: var(--header-bg);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: rgba(51, 153, 255, 0.1);
+  color: var(--nav-bg);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(51, 153, 255, 0.3);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.project-link:not(.private):not(.coming-soon) {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.project-link:not(.private):not(.coming-soon):hover {
+  background: var(--header-bg);
+  transform: translateY(-1px);
+}
+
+.project-link.private {
+  background: #6c757d;
+  color: white;
+  cursor: default;
+}
+
+.project-link.coming-soon {
+  background: #ffc107;
+  color: #212529;
+  cursor: default;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(51, 153, 255, 0.05);
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.contact-item:hover {
+  background: rgba(51, 153, 255, 0.1);
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: var(--nav-bg);
+  min-width: 30px;
+}
+
+.contact-item h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  color: var(--header-bg);
+}
+
+.contact-item a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Education Section Styles */
+.education-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacks cards on small screens */
+  gap: 20px; /* Space between education cards */
+  margin-top: 1rem; /* Aligns with other section grids */
+}
+
+@media (min-width: 768px) {
+  .education-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two columns on larger screens */
+  }
+}
+
+.education-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Added for consistency with project cards */
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-card h3 {
+  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 5px; /* Reduce space below the university name */
+  color: var(--text-color-dark); /* Ensure heading color matches theme */
+  font-size: 1.3rem; /* Consistent with project-card h3 */
+}
+
+.education-card p {
+  margin-top: 0; /* Remove default top margin for paragraphs */
+  margin-bottom: 3px; /* Reduce space between degree and location */
+  line-height: 1.4; /* Adjust line height for better readability if needed */
+  color: var(--text-color-light); /* Ensure paragraph color matches theme */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .education-container { /* Added responsive rule for education */
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .profile-photo {
+    width: 120px; /* Smaller photo on mobile */
+    height: 120px;
+  }
+}
+
+/* Smooth Animations */
+* {
+  box-sizing: border-box;
+}
+
+section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .tech-tag {
+  background: rgba(102, 204, 255, 0.1);
+  color: var(--link);
+  border-color: rgba(102, 204, 255, 0.3);
+}
+
+[data-theme="dark"] .contact-item {
+  background: rgba(102, 204, 255, 0.05);
+}
+
+[data-theme="dark"] .contact-item:hover {
+  background: rgba(102, 204, 255, 0.1);
+}
+
+/* Dark mode text color fixes */
+[data-theme="dark"] .project-card h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .contact-item h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .skill-category h3 {
+  color: var(--link);
+}
+
+[data-theme="dark"] .contact-item i {
+  color: var(--link);
+}
+
+[data-theme="dark"] .project-card {
+  border: 1px solid rgba(102, 204, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark theme adjustments for education section */
+[data-theme="dark"] .education-card {
+  border: 1px solid rgba(102, 204, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .education-card h3 {
+  color: var(--text); /* Matches project card h3 in dark mode */
+}
+
+/* Dark theme adjustments for profile photo */
+[data-theme="dark"] .profile-photo {
+  border: 4px solid var(--link); /* Adjust border color for dark theme */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
