@@ -418,3 +418,16 @@ section {
 [data-theme="dark"] .contact-item:hover {
   background: rgba(102, 204, 255, 0.1);
 }
+
+/* Dark mode text color fixes */
+[data-theme="dark"] .project-card h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .contact-item h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .skill-category h3 {
+  color: var(--link);
+}
