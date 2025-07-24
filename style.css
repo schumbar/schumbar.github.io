@@ -431,3 +431,7 @@ section {
 [data-theme="dark"] .skill-category h3 {
   color: var(--link);
 }
+
+[data-theme="dark"] .contact-item i {
+  color: var(--link);
+}
